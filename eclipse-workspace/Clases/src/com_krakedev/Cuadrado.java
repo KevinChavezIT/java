@@ -4,7 +4,7 @@ public class Cuadrado {
 
 	private int calcularArea;
 	private int calcularPerimetro;
-	int lado;
+	public int lado;
 
 	public int getCalcularArea() {
 		return calcularArea;
