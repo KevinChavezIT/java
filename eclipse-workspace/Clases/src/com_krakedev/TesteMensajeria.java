@@ -7,7 +7,10 @@ public class TesteMensajeria {
 		Mensajeria mensaje=new Mensajeria();
 		
 		mensaje.saludar();
-		mensaje.SaludarAmigos("Mario", "Bross");
+		mensaje.setNombre("Mario");
+		mensaje.setApellido("Bross");
+		
+		System.out.println("Hola: "+mensaje.getNombre()+" "+mensaje.getApellido());
 		
 	}
 }
