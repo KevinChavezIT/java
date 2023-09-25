@@ -17,17 +17,22 @@ public class TesteCalculadora {
 		Calculadora promedio = new Calculadora();
 		Calculadora mensaje = new Calculadora();
 
-		respuestaSuma = suma.sumar(5, 5);
+		suma.setResultadoSuma(5, 5);
+		respuestaSuma=suma.getResultadoSuma();
 
-		respuestaResta = resta.restar(20, 5);
+		resta.setResultadoResta(20, 5);
+		respuestaResta=resta.getResultadoResta();
 		
-		respuestaMulti = multiplicacion.multiplicar(5, 4);
-
-		respuestaDivision = division.dividir(100, 4);
+		multiplicacion.setResultadoMultiplicacion(5, 4);
+		respuestaMulti=multiplicacion.getResultadoMultiplicacion();
 		
-		respuestaPromedio = promedio.promediar(10, 10,10);
+		division.setResultadoDivision(100, 4);
+		respuestaDivision=division.getResultadoDivision();
+		
+		promedio.setResultadoPromedio(10, 10,10);
+		respuestaPromedio=promedio.getResultadoPromedio();
 
-		System.out.println("Respuesta SUMA: " + respuestaSuma);
+		System.out.println("Respuesta SUMA: " +respuestaSuma);
 		System.out.println("Respuesta RESTA: " + respuestaResta);
 		System.out.println("Respuesta MULTIPLIACION: " + respuestaMulti);
 		System.out.println("Respuesta DIVISION: " + respuestaDivision);

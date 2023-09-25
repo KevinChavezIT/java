@@ -4,6 +4,7 @@ public class Auto {
 	private  String marca;
 	private int anio;
 	private Double precio;
+	
 	public String getMarca() {
 		return marca;
 	}
