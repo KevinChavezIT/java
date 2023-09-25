@@ -4,7 +4,7 @@ public class Cuenta {
 
 	private String id;
 	private String tipo = "A";
-	private double saldo;
+	private double saldo=0.0;
 
 	public Cuenta(String id, String tipo) {
 		this.id = id;
