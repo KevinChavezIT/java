@@ -18,21 +18,21 @@ public class TesteCalculadora {
 		Calculadora mensaje = new Calculadora();
 
 		suma.setResultadoSuma(5, 5);
-		respuestaSuma=suma.getResultadoSuma();
+		respuestaSuma = suma.getResultadoSuma();
 
 		resta.setResultadoResta(20, 5);
-		respuestaResta=resta.getResultadoResta();
-		
-		multiplicacion.setResultadoMultiplicacion(5, 4);
-		respuestaMulti=multiplicacion.getResultadoMultiplicacion();
-		
-		division.setResultadoDivision(100, 4);
-		respuestaDivision=division.getResultadoDivision();
-		
-		promedio.setResultadoPromedio(10, 10,10);
-		respuestaPromedio=promedio.getResultadoPromedio();
+		respuestaResta = resta.getResultadoResta();
 
-		System.out.println("Respuesta SUMA: " +respuestaSuma);
+		multiplicacion.setResultadoMultiplicacion(5, 4);
+		respuestaMulti = multiplicacion.getResultadoMultiplicacion();
+
+		division.setResultadoDivision(100, 4);
+		respuestaDivision = division.getResultadoDivision();
+
+		promedio.setResultadoPromedio(10, 10, 10);
+		respuestaPromedio = promedio.getResultadoPromedio();
+
+		System.out.println("Respuesta SUMA: " + respuestaSuma);
 		System.out.println("Respuesta RESTA: " + respuestaResta);
 		System.out.println("Respuesta MULTIPLIACION: " + respuestaMulti);
 		System.out.println("Respuesta DIVISION: " + respuestaDivision);
