@@ -7,26 +7,26 @@ public class TestPersona {
 		Persona p, p1;// paso 1 declaro una variable de tipo persona
 
 		p1 = new Persona();
-		p1.nombre = "juan";
-		p1.edad = 15;
-		p1.estatura = 1.90;
+		p1.setNombre("juan");
+		p1.setEdad(15);
+		p1.setEstatura(1.90);
 
 		p = new Persona(); // instanciar un objeto persona
-		p.nombre = "mario";
-		p.edad = 12;
-		p.estatura = 1.70;
+		p.setNombre("pepe");
+		p.setEdad(50);
+		p.setEstatura(1.50);
 
 		// acceder a los atributos
-		System.out.println("hola: " + p.nombre + ", " + p1.nombre);
-		System.out.println("tu edada es: " + p.edad);
-		System.out.println("mides: " + p.estatura);
+		System.out.println("hola: " + p.getNombre());
+		System.out.println("tu edada es: " + p.getEdad());
+		System.out.println("mides: " + p.getEstatura());
 		System.out.println("-----------------");
-		System.out.println("hola: " + p1.nombre);
-		System.out.println("tu edada es: " + p1.edad);
-		System.out.println("mides: " + p1.estatura);
-
+		System.out.println("hola: " + p1.getNombre());
+		System.out.println("tu edada es: " + p1.getEdad());
+		System.out.println("mides: " + p1.getEstatura());
+		System.out.println("-----------------");
 		// modificar los atributos
-		p.nombre = "jose";
-		System.out.println("hola: " + p.nombre + ", " + p1.nombre);
+		p.setNombre("jose");
+		System.out.println("hola: " + p.getNombre());
 	}
 }
