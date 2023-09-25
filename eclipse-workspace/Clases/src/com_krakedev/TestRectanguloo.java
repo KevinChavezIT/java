@@ -4,18 +4,13 @@ public class TestRectanguloo {
 
 	public static void main(String[] args) {
 
-		Rectangulo a = new Rectangulo();
-		Rectangulo a2 = new Rectangulo();
+		Rectangulo a = new Rectangulo(5,5);
+		Rectangulo a2 = new Rectangulo(8,3);
 
 		int area;
 		int area2;
 		double perimetro;
 		double perimetro2;
-
-		a.setAltura(10);
-		a.setBase(5);
-		a2.setAltura(8);
-		a2.setBase(3);
 
 		a.setCalcularArea();
 		a.setCalcularPerimetro();
