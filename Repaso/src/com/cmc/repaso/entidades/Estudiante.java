@@ -38,7 +38,7 @@ public class Estudiante {
 		this.nota = nota;
 		if (nota < 8) {
 			resultado = "F";
-			System.out.println(resultado);
+			System.out.println(resultado+getNombre());
 		} else if (nota >= 8) {
 			resultado = "A";
 			System.out.println(resultado);
