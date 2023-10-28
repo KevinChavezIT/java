@@ -1,9 +1,12 @@
 package com.krakedev.persitencia.servicios;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
+import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -126,5 +129,137 @@ public class AdminPersonas {
 				throw new Exception("Error con la BDD");
 			}
 		}
+	}
+
+	public static ArrayList<Persona> buscarPorNombre(String nombreBusqueda) throws Exception {
+
+		ArrayList<Persona> personas = new ArrayList<Persona>();
+
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		LOGGER.trace("CONSULTANDO PERSONA CON CEDULA: >>>>" + personas);
+
+		try {
+			con = ConexionBDD.conectar();
+
+			ps = con.prepareStatement("select * from personass where nombre like ? ");
+			ps.setString(1, "%" + nombreBusqueda + "%");
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+
+				String nombre = rs.getString("nombre");
+				String cedula = rs.getString("cedula");
+
+				Persona p = new Persona();
+
+				p.setCedula(cedula);
+				p.setNombre(nombre);
+
+				personas.add(p);
+
+			}
+
+		} catch (Exception e) {
+
+			LOGGER.error("Error al CONSULTAR", e);
+			throw new Exception("Error al CONSULTAR");
+
+		} finally {
+			// cerrar conexion
+			try {
+				con.close();
+			} catch (SQLException e) {
+
+				LOGGER.error("Error con la BDD", e);
+				throw new Exception("Error con la BDD");
+			}
+		}
+		return personas;
+	}
+
+	public static Persona buscarPorPK(String cedula) throws Exception {
+		Persona persona = null;
+
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		LOGGER.trace("CONSULTANDO PERSONA CON CEDULA: >>>>" + cedula);
+
+		try {
+			con = ConexionBDD.conectar();
+
+			ps = con.prepareStatement("select * from personass where cedula = ?");
+			ps.setString(1, cedula);
+
+			rs = ps.executeQuery();
+
+			if (rs.next()) {
+				String nombre = rs.getString("nombre");
+				String pk = rs.getString("cedula");
+
+				persona = new Persona();
+				persona.setCedula(pk);
+				persona.setNombre(nombre);
+			}
+
+		} catch (Exception e) {
+			LOGGER.error("Error al CONSULTAR", e);
+			throw new Exception("Error al CONSULTAR");
+		} finally {
+			// cerrar conexion
+			try {
+				con.close();
+			} catch (SQLException e) {
+				LOGGER.error("Error con la BDD", e);
+				throw new Exception("Error con la BDD");
+			}
+		}
+
+		return persona;
+	}
+
+	public static ArrayList<Persona> buscarPorCantidadAhorrada(BigDecimal cantidadAhorrada) throws Exception {
+		ArrayList<Persona> personas = new ArrayList<Persona>();
+
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		LOGGER.trace("CONSULTANDO PERSONAS CON CANTIDAD AHORRADA MAYOR A: " + cantidadAhorrada);
+
+		try {
+			con = ConexionBDD.conectar();
+
+			ps = con.prepareStatement("select * from personass where cantidad_ahorrada >?::money");
+			ps.setBigDecimal(1, cantidadAhorrada);
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				String nombre = rs.getString("nombre");
+				String cedula = rs.getString("cedula");
+
+				Persona p = new Persona();
+				p.setCedula(cedula);
+				p.setNombre(nombre);
+
+				personas.add(p);
+			}
+
+		} catch (Exception e) {
+			LOGGER.error("Error al CONSULTAR", e);
+			throw new Exception("Error al CONSULTAR");
+		} finally {
+			// cerrar conexion
+			try {
+				con.close();
+			} catch (SQLException e) {
+				LOGGER.error("Error con la BDD", e);
+				throw new Exception("Error con la BDD");
+			}
+		}
+		return personas;
 	}
 }
